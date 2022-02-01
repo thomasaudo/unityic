@@ -43,6 +43,8 @@ public class Player : NetworkBehaviour
             {
                 var bullet = Instantiate(bulletPrefab, cannon.transform.position, transform.rotation);
                 bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
+
+                bullet.GetComponent<NetworkObject>().Spawn();
                 Destroy(bullet, 3f);
             }
 
@@ -54,6 +56,8 @@ public class Player : NetworkBehaviour
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.identity;
     }
-    
+
+
+
 
 }
