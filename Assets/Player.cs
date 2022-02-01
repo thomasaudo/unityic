@@ -12,7 +12,7 @@ public class Player : NetworkBehaviour
 
     public float bulletSpeed;
 
-    public float speed;
+    public float speed = 30;
 
 
     void Update() {
@@ -23,6 +23,7 @@ public class Player : NetworkBehaviour
                 transform.position = Vector3.Lerp(transform.position, transform.position + (transform.forward * speed * Time.deltaTime), 0.1f);
             }
         
+
             if (Input.GetKey(KeyCode.S))
             {
                 transform.position = Vector3.Lerp(transform.position, transform.position - (transform.forward * speed * Time.deltaTime), 0.1f);
