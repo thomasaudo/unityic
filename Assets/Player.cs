@@ -15,10 +15,6 @@ public class Player : NetworkBehaviour
     public float speed = 30;
 
 
-
-
-
-
     void Update() {
         if(IsLocalPlayer)
         {
@@ -42,6 +38,21 @@ public class Player : NetworkBehaviour
             {
                 transform.rotation *= Quaternion.AngleAxis(5 * speed * Time.deltaTime, Vector3.up);
             }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                var bullet = Instantiate(bulletPrefab, cannon.transform.position, transform.rotation);
+                bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
+                Destroy(bullet, 3f);
+            }
+
         }
     }
+
+    public void ResetPlayer()
+    {
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+    }
+
 }
