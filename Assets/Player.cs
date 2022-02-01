@@ -15,6 +15,10 @@ public class Player : NetworkBehaviour
     public float speed = 30;
 
 
+
+
+
+
     void Update() {
         if(IsLocalPlayer)
         {
